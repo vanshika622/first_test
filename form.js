@@ -5,15 +5,15 @@ const Email = document.querySelector('#Email')
 const Password = document.querySelector('#Password')
 const Cpassword = document.querySelector('#Cpassword')
 
-var letter = document.getElementById("letter");
-var capital = document.getElementById("capital");
-var number = document.getElementById("number");
-var length = document.getElementById("length");
+// var letter = document.getElementById("letter");
+// var capital = document.getElementById("capital");
+// var number = document.getElementById("number");
+// var length = document.getElementById("length");
 
 
 //add event
 form.addEventListener('submit', (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     check();
 
 })
@@ -29,27 +29,28 @@ const isEmail = (EmailVal) => {
     
 
 }
-// const sendData = (UsernameVal, Srate, count) => {
-//     if (Srate === count) {
-//         alert("Regstration Successful")
-//         swal(`Welcome! ${UsernameVal} Resgistration Succesfully Done`);
-//         location.href = `demo.html?username=${UsernameVal}`
-//     }
+const sendData = (UsernameVal, Srate, count) => {
+    if (Srate === count) {
+        alert("Regstration Successful")
+        swal(`Welcome! ${UsernameVal} Resgistration Succesfully Done`);
+        location.href = `demo.html?username=${UsernameVal}`
+    }
 
 
-// }
-// const Successful = (UsernameVal) => {
-//     let formCon = document.querySelector(".form-control");
-//     var count = formCon.length - 1;
-//     for (let i = 0; i < formCon.length; i++) {
-//         if (formCon[i].className === "form-control success") {
-//             var Srate = 0 + i;
-//             sendData(UsernameVal, Srate, count);
-//         } else {
-//             return false;
-//         }
-//     }
-// }
+}
+const Successful = (UsernameVal) => {
+    let formCon = document.querySelector(".form-control");
+    var count = formCon.length - 1;
+    for (var i = 0; i < formCon.length; i++) {
+        if (formCon[i].className === "form-control success") {
+            var Srate = 0 + i;
+
+            sendData(UsernameVal, Srate, count);
+        } else {
+            return false;
+        }
+    }
+}
 
 
 
@@ -85,7 +86,7 @@ const check = () => {
     // password validation
         if(PasswordVal===""){
             setErrormsg(Password, 'Cannot be Blank')
-        } else if (PasswordVal.length <= 8) {
+        } else if (PasswordVal.length <8 ) {
             setErrormsg(Password, 'Password must contain 8 characters')
         } else {
             setSuccessMsg(Password)
